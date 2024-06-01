@@ -1,4 +1,4 @@
-﻿namespace WordsOfPeace.Domain.Entity.Word;
+﻿namespace WordsOfPeace.Domain.Entity;
 /// <summary>
 /// Изучаемое слово. Слово и его возможные переводы, транскрипция.
 /// </summary>
@@ -7,17 +7,17 @@ public interface IWord
     /// <summary>
     /// Иностранное слово
     /// </summary>
-    public string Value { get; init; }
+    public string Value { get; }
     /// <summary>
     /// Возможные переводы
     /// </summary>
-    public string[] Translation { get; init; }
+    public string[] Translations { get; }
     /// <summary>
     /// Транскрипция
     /// </summary>
-    public string Transcription  { get; init; }
+    public string? Transcription { get; }
     /// <summary>
     /// ID категории, к которым относится слово
     /// </summary>
-    public int[] Categoryes  { get; init; }
+    public List<WordCategory> Categoryes { get; }
 }

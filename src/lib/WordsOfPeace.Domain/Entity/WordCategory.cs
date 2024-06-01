@@ -3,10 +3,11 @@
 /// <summary>
 /// <inheritdoc />
 /// </summary>
-public class WordCategory : IWordCategory
+public class WordCategory(string name) : IWordCategory
 {
     /// <inheritdoc />
-    public int id { get; }
+    public int Id { get; set; }
     /// <inheritdoc />
-    public int Name { get; }
+    public string Name { get; set; } = name;
+    public List<Word> Words { get; set; } = [];
 }

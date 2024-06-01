@@ -7,9 +7,9 @@ public interface IWordCategory
     /// <summary>
     /// Уникальный ID
     /// </summary>
-    public int id { get; }
+    public int Id { get; }
     /// <summary>
     /// Название на языке ученика
     /// </summary>
-    public int Name { get; }
+    public string Name { get; }
 }

@@ -1,6 +1,6 @@
 ﻿using WordsOfPeace.Domain.Repository;
 
-namespace WordsOfPeace.Domain.Entity.Word;
+namespace WordsOfPeace.Domain.Entity;
 /// <summary>
 /// <inheritdoc />
 /// </summary>
