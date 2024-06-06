@@ -1,4 +1,5 @@
-﻿namespace WordsOfPeace.Domain.Entity.WordDictionary;
+﻿using WordsOfPeace.Domain.Entity;
+namespace WordsOfPeace.Domain.AggregatesModel;
 /// <summary>
 /// Словарь иностранных слов, который содержит слова и фразы, разбитые по категориям.
 /// </summary>
