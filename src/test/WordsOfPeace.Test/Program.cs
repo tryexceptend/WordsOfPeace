@@ -1,18 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
+
+using Microsoft.Extensions.Configuration;
 using WordsOfPeace.Domain.AggregatesModel;
 using WordsOfPeace.Infrastructure.DBContext;
 using WordsOfPeace.Infrastructure.Repositories;
 
-Console.WriteLine("Hello, World!");
 
-string dictionaryName = "C:\\Projects\\Trash\\WordsOfPeace\\db\\EngToRus.db";
+string dictionaryName = "db";
 
-SQLiteDictionaryContextFactory dictionaryContextFactory = new SQLiteDictionaryContextFactory();
-DictionaryRepository dictionaryRepository = new DictionaryRepository(dictionaryContextFactory);
-WordDictionaryFactory wordDictionaryFactory = new WordDictionaryFactory(dictionaryRepository);
-var dictionary = await wordDictionaryFactory.FactoryMethod(dictionaryName);
-foreach (var word in dictionary.Words)
+IConfigurationRoot configuration = new ConfigurationBuilder().AddJsonFile("applicationConfig.json").Build();
+SQLiteDictionaryCatalog catalog = new SQLiteDictionaryCatalog(configuration);
+foreach (var dictionary in catalog.GetWordDictionaries() )
 {
-    Console.WriteLine((word));
+    Console.WriteLine(dictionary.Name);
 }
 

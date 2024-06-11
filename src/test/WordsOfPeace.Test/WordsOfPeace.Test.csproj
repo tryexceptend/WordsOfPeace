@@ -9,11 +9,24 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0-preview.4.24267.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.0-preview.5.24306.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\lib\WordsOfPeace.Domain\WordsOfPeace.Domain.csproj" />
     <ProjectReference Include="..\..\lib\WordsOfPeace.Infrastructure\WordsOfPeace.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="db\EngToRus.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="db\English\EngToRus.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="applicationConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

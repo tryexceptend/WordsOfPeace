@@ -8,12 +8,12 @@ public class WordDictionaryFactory : IWordDictionaryFactory
     {
         _repository = repository ?? throw new ArgumentNullException(nameof(repository));
     }
-    public async Task<WordDictionary> FactoryMethod(string dictionaryName)
+    public async Task<WordDictionary> FactoryMethodAsync(string dictionaryName)
     {
         var version = await _repository.GetDictionaryVersionAsync(dictionaryName);
         return version.Major switch
         {
-            1 => new WordDictionary(await _repository.GetWordsAsync(dictionaryName)),
+            1 => new WordDictionary(await _repository.GetWordsAsync(dictionaryName),dictionaryName),
             _ => null
         };
     }

@@ -10,12 +10,15 @@ public class WordDictionary
     /// </summary>
     /// <param name="words"></param>
     /// <exception cref="ArgumentNullException"></exception>
-    public WordDictionary(Dictionary<string, IWord> words)
+    public WordDictionary(Dictionary<string, IWord> words, string name)
     {
         Words = words ?? throw new ArgumentNullException(nameof(words));
+        Name = name;
     }
     /// <summary>
     /// Словарь слов
     /// </summary>
     public Dictionary<string, IWord> Words { get; init; }
+
+    public string Name { get; }
 }

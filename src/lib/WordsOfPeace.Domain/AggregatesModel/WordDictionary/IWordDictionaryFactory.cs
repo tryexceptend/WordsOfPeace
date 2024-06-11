@@ -4,5 +4,5 @@
 /// </summary>
 public interface IWordDictionaryFactory
 {
-    Task<WordDictionary> FactoryMethod(string dictionaryName);    
+    Task<WordDictionary> FactoryMethodAsync(string dictionaryName);    
 }
