@@ -8,15 +8,14 @@ public class SQLiteDictionaryCatalog(IConfiguration configuration) : IDictionary
 {
     private readonly IConfiguration _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
     
-    public IEnumerable<WordDictionary> GetWordDictionaries()
+    public IEnumerable<WordDictionaryInfo> GetWordDictionaries()
     {
-        List<WordDictionary> result = [];
         foreach (var dictionary in GetFiles(_configuration["dictionaryesDirectory"]))
         {
-            SQLiteDictionaryContextFactory factory = new SQLiteDictionaryContextFactory();
+            SQLiteDictionaryContextFactory factory = new SQLiteDictionaryContextFactory(_configuration);
             DictionaryRepository dictionaryRepository = new DictionaryRepository(factory);
             WordDictionaryFactory wordDictionaryFactory = new WordDictionaryFactory(dictionaryRepository);
-            yield return wordDictionaryFactory.FactoryMethodAsync(dictionary).GetAwaiter().GetResult();
+            yield return wordDictionaryFactory.InfoFactoryMethodAsync(factory.EncodeDictionaryName(dictionary)).GetAwaiter().GetResult();
         }
     }
     

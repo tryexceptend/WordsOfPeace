@@ -6,4 +6,5 @@ public interface IWordDictionaryRepository
 {
     Task<Version> GetDictionaryVersionAsync(string dictionaryName);
     Task<Dictionary<string, IWord>> GetWordsAsync(string dictionaryName);
+    Task<WordDictionaryInfo> GetWordDictionaryInfoAsync(string dictionaryName);
 }

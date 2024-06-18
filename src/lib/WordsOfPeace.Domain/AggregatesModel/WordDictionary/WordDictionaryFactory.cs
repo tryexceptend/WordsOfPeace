@@ -17,4 +17,9 @@ public class WordDictionaryFactory : IWordDictionaryFactory
             _ => null
         };
     }
+
+    public Task<WordDictionaryInfo> InfoFactoryMethodAsync(string dictionaryName)
+    {
+        return _repository.GetWordDictionaryInfoAsync(dictionaryName);
+    }
 }
